@@ -7,6 +7,7 @@ PyYAML>=6
 fastapi>=0.111
 uvicorn[standard]>=0.30
 python-multipart>=0.0.9
+gratheon-log-lib @ https://github.com/Gratheon/log-lib-py/archive/03b30ba.zip
 # Browser/export dependencies
 onnx>=1.12,<2
 onnxruntime>=1.20

@@ -135,14 +135,24 @@ python scripts/export_model.py --weights weights/best.pt --format tfjs --imgsz 5
 # Copy trained weights into weights/best.pt first if they are not already there.
 uvicorn src.server:app --host 0.0.0.0 --port 8710
 ```
-```
 
 Optional runtime settings:
 
 ```bash
 export QUEEN_BEE_DETECTOR_WEIGHTS=weights/best.pt
 export QUEEN_BEE_DETECTOR_MAX_UPLOAD_BYTES=8000000
+export QUEEN_BEE_DETECTOR_CONF=0.3
+export QUEEN_BEE_DETECTOR_IOU=0.45
+export OTEL_SERVICE_NAME=models-queen-bee-detector
 ```
+
+The service uses the shared Gratheon Python logger via:
+
+```txt
+gratheon-log-lib @ https://github.com/Gratheon/log-lib-py/archive/03b30ba.zip
+```
+
+It emits request-scoped logs with `request_id`. To export logs to an OTLP collector, set `OTEL_EXPORTER_OTLP_ENDPOINT`.
 
 Or run with Docker:
 
@@ -150,10 +160,17 @@ Or run with Docker:
 docker compose up --build
 ```
 
+Endpoints:
+
+- `GET /health` — health check with model weight presence.
+- `GET /` — simple upload form, matching `models-bee-detector` behavior.
+- `POST /` and `POST /detect` — multipart upload with `file` field. Optional query params: `conf`, `iou`.
+
 POST an image:
 
 ```bash
 curl -F file=@queen.jpg http://localhost:8710/detect
+curl -F file=@queen.jpg http://localhost:8710/
 ```
 
 Response shape:

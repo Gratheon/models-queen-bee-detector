@@ -1,0 +1,22 @@
+# Production inference runtime. Keep training/export/browser dependencies out of the image.
+# Dockerfile installs ultralytics with --no-deps to avoid pulling GUI opencv-python.
+opencv-python-headless>=4.9
+Pillow>=10
+numpy>=1.26
+PyYAML>=6
+requests>=2.31
+scipy>=1.12
+matplotlib>=3.8
+psutil>=5.9
+polars>=1.0
+ultralytics-thop>=2.0.18
+fastapi>=0.111
+uvicorn>=0.30
+python-multipart>=0.0.9
+gratheon-log-lib @ https://github.com/Gratheon/log-lib-py/archive/03b30ba.zip
+
+# Deterministic CPU-only PyTorch wheels.
+--index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://pypi.org/simple
+torch==2.10.0+cpu
+torchvision==0.25.0+cpu
