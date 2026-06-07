@@ -1,0 +1,13 @@
+services:
+  models-queen-bee-detector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ENV_ID=prod
+      - OTEL_SERVICE_NAME=models-queen-bee-detector
+    ports:
+      - 8710:8710
+    volumes:
+      - ./weights:/app/weights:ro
+    restart: unless-stopped

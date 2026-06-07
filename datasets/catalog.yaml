@@ -1,0 +1,46 @@
+# Candidate public datasets for queen bee detection.
+# Roboflow exports require a free Roboflow account and ROBOFLOW_API_KEY.
+primary:
+  workspace: matt-nudi
+  project: honey-bee-detection-model-zgjnb
+  version: 2
+  format: yolov8
+  url: https://universe.roboflow.com/matt-nudi/honey-bee-detection-model-zgjnb/dataset/2
+  classes: [workers-drones-queens-pollenbees]
+  notes: "909 images; multi-class bee/drone/pollenbee/queen dataset. Best starting point because negative bee classes reduce queen false positives."
+augment:
+  - workspace: sharedws
+    project: queen_bee-kcfnv
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/sharedws/queen_bee-kcfnv
+    classes: [queenBee]
+    notes: "583 queenBee images. Good for increasing queen examples; needs class-name normalization."
+  - workspace: workspace-1-tu7e5
+    project: bee-detection-h59jf
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/workspace-1-tu7e5/bee-detection-h59jf
+    classes: [bee, drone, pollenbee, queen]
+    license: CC BY 4.0
+    notes: "Explicit CC BY 4.0 Roboflow dataset; useful alternative/validation set."
+  - workspace: detection-a6lof
+    project: queen-bee
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/detection-a6lof/queen-bee
+    classes: [Queen-Bee]
+    license: CC BY 4.0
+    notes: "97 Queen-Bee images; too small alone, useful as supplement."
+  - workspace: andrew-hofer-1qh7e
+    project: bees-ytrmp
+    version: 1
+    format: yolov8
+    url: https://universe.roboflow.com/andrew-hofer-1qh7e/bees-ytrmp
+    classes: [bee, queen, mite]
+    notes: "6423 open-source bee-queen-mite images according to Roboflow search snippet; verify license before use."
+external:
+  - url: https://github.com/yyaddaden/QueenBeeDetection
+    notes: "Academic/GitHub queen bee detection project. Inspect license/annotation format before mixing."
+  - url: https://www.kaggle.com/datasets/lara311/bee-detection-dataset
+    notes: "General bee detection dataset; useful for generic bee pretraining but not queen-specific by default."

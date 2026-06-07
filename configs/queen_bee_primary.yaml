@@ -1,0 +1,16 @@
+names:
+- bee
+- drone
+- pollenbee
+- queen
+nc: 4
+roboflow:
+  license: CC BY 4.0
+  project: honey-bee-detection-model-zgjnb
+  url: https://universe.roboflow.com/matt-nudi/honey-bee-detection-model-zgjnb/dataset/2
+  version: 2
+  workspace: matt-nudi
+test: test/images
+train: train/images
+val: valid/images
+path: datasets/queen-bee-primary

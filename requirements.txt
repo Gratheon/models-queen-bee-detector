@@ -1,0 +1,14 @@
+ultralytics>=8.3.0,<9
+roboflow>=1.1.50,<2
+opencv-python>=4.9
+Pillow>=10
+numpy>=1.26
+PyYAML>=6
+fastapi>=0.111
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+gratheon-log-lib @ https://github.com/Gratheon/log-lib-py/archive/03b30ba.zip
+# Browser/export dependencies
+onnx>=1.12,<2
+onnxruntime>=1.20
+onnxslim>=0.1.82
