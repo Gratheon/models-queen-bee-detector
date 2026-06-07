@@ -1,0 +1,32 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+
+# Training artifacts
+runs/
+datasets/*
+!datasets/README.md
+!datasets/catalog.yaml
+weights/*
+!weights/README.md
+exports/*
+!exports/README.md
+*.pt
+*.onnx
+*.engine
+*.tflite
+*_web_model/
+*_saved_model/
+
+# Local images / smoke-test inputs
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.bmp
+
+# Logs
+*.log
