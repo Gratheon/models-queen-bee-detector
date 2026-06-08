@@ -1,1 +1,3 @@
-Trained `.pt` weights are intentionally not committed. Expected production path: `weights/best.pt`.
+Production PyTorch weights live at `weights/best.pt`.
+
+Other exported formats (for example `.onnx`) are generated artifacts and are intentionally not committed unless explicitly needed by a runtime.

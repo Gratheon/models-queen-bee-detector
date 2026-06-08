@@ -12,9 +12,11 @@ datasets/*
 !datasets/catalog.yaml
 weights/*
 !weights/README.md
+!weights/best.pt
 exports/*
 !exports/README.md
 *.pt
+!weights/best.pt
 *.onnx
 *.engine
 *.tflite
