@@ -1,0 +1,24 @@
+services:
+  models-queen-bee-detector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ENV_ID=dev
+      - OTEL_EXPORTER_OTLP_ENDPOINT=${OTEL_EXPORTER_OTLP_ENDPOINT:-http://host.docker.internal:4318}
+      - OTEL_SERVICE_NAME=models-queen-bee-detector
+      - OTEL_RESOURCE_ATTRIBUTES=deployment.environment.name=dev,service.namespace=gratheon
+      - HYPERDX_API_KEY=${HYPERDX_API_KEY:-local-gratheon-clickstack}
+    ports:
+      - 8710:8710
+    volumes:
+      - ./weights:/app/weights:ro
+    restart: unless-stopped
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - gratheon_default
+
+networks:
+  gratheon_default:
+    external: true
